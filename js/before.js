@@ -85,15 +85,15 @@ function doBeforeThing() {
         console.log(canvas)
         var img = new Image()
         img.src = canvas.toDataURL('image/jpeg')
-        postBase64(img.src, function (data) {
-          //提交请求
-          post({
-            img: data.path,
-            type: 1
-          },'user/update-poster', function () {
-            layerMsg('提交成功！');
-          })
-        })
+        // postBase64(img.src, function (data) {
+        //   //提交请求
+        //   post({
+        //     img: data.path,
+        //     type: 1
+        //   },'user/update-poster', function () {
+        //     layerMsg('提交成功！');
+        //   })
+        // })
         img.style.cssText += 'position:absolute;width:100%;left:0;top:0;opacity: 0;z-index: 20;'
         $('body').append(img)
         $('.btn-done').hide()

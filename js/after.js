@@ -66,10 +66,10 @@ function doThing() {
             console.log(1233)
             var cropper = previewImg.cropper('getCroppedCanvas');
             var base64url = cropper.toDataURL('image/jpeg');
-            postBase64(base64url, function (data) {
-              //提交请求
-              that.setAttribute("path",data.path)
-            })
+            // postBase64(base64url, function (data) {
+            //   //提交请求
+            //   that.setAttribute("path",data.path)
+            // })
             previewImg.cropper('destroy');
             tempImgNode.attr('src', base64url);
             $('.cropper-wrapper').hide()
@@ -105,16 +105,16 @@ function doThing() {
 
         var img = new Image()
         img.src = canvas.toDataURL('image/jpeg')
-        postBase64(img.src, function (data) {
-          //提交请求
-          post({
-            img: data.path,
-            imgs: imgs,
-            type: 2
-          },'user/update-poster', function () {
-            layerMsg('提交成功！');
-          })
-        })
+        // postBase64(img.src, function (data) {
+        //   //提交请求
+        //   post({
+        //     img: data.path,
+        //     imgs: imgs,
+        //     type: 2
+        //   },'user/update-poster', function () {
+        //     layerMsg('提交成功！');
+        //   })
+        // })
         img.style.cssText += 'position:absolute;width:100%;left:0;top:0;opacity: 0;z-index: 20;'
         $('body').append(img)
         $('.btn-done').hide()
