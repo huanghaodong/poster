@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+	<meta content="yes" name="apple-mobile-web-app-capable">
+	<meta content="yes" name="apple-touch-fullscreen">
+	<meta content="telephone=no,email=no" name="format-detection">
+	<script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/mobile.css">
+	<style>
+		input,select,textarea{
+			border:none;
+			background:none;
+			outline: medium;
+			color:white;
+		}
+		select{
+			border:0;
+			background: transparent;
+			-webkit-appearance:none;
+			
+			-moz-appearance:none;
+			
+			appearance:none; /*去掉下拉箭头*/
+			/*padding-left: 3px;*/
+		}
+		/*input::-webkit-input-placeholder{*/
+		/*color:white;*/
+		/*}*/
+		input::-webkit-input-placeholder{
+			font-size: 3.4vw;
+		}
+		input::-moz-placeholder{   /* Mozilla Firefox 19+ */
+			font-size: 3.4vw;
+		}
+		input:-moz-placeholder{    /* Mozilla Firefox 4 to 18 */
+			font-size: 3.4vw;
+		}
+		input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
+			font-size: 3.4vw;
+		}
+		.main_con{
+			width: 200%;
+			left: 0;
+			top: 0;
+			height: 200%;
+			overflow: hidden;
+			margin: 0 auto;
+			position: absolute;
+			box-sizing: border-box;
+			transform-origin:0 0;
+			transform: scale(0.5, 0.5);
+			-ms-transform: scale(0.5, 0.5); 		/* IE 9 */
+			-ms-transform-origin:0 0; 		/* IE 9 */
+			-webkit-transform: scale(0.5, 0.5);	/* Safari 和 Chrome */
+			-webkit-transform-origin:0 0;	/* Safari 和 Chrome */
+			-moz-transform: scale(0.5, 0.5);		/* Firefox */
+			-moz-transform-origin:0 0;		/* Firefox */
+			-o-transform: scale(0.5, 0.5);		/* Opera */
+			-o-transform-origin:0 0;		/* Opera */
+		}
+		.main_con_down{
+			width: 200%;
+			left: 0;
+			top: 0;
+			height: 200%;
+			overflow: hidden;
+			margin: 0 auto;
+			position: absolute;
+			box-sizing: border-box;
+			transform-origin:0 0;
+			transform: scale(0.5, 0.5);
+			-ms-transform: scale(0.5, 0.5); 		/* IE 9 */
+			-ms-transform-origin:0 0; 		/* IE 9 */
+			-webkit-transform: scale(0.5, 0.5);	/* Safari 和 Chrome */
+			-webkit-transform-origin:0 0;	/* Safari 和 Chrome */
+			-moz-transform: scale(0.5, 0.5);		/* Firefox */
+			-moz-transform-origin:0 0;		/* Firefox */
+			-o-transform: scale(0.5, 0.5);		/* Opera */
+			-o-transform-origin:0 0;		/* Opera */
+			z-index: -999;
+		}
+		#ipt1{
+			position: absolute;
+			font-size: 4.5vw;
+			width: 90vw;
+			left: 76vw;
+			top: 202.5vw;
+			color: #4D4D4D;
+			overflow: hidden;
+			
+		}
+		#ipt2{
+			position: absolute;
+			font-size: 4.5vw;
+			width: 90vw;
+			left: 76vw;
+			top: 209.5vw;
+			color: #4D4D4D;
+			overflow: hidden;
+		}
+		#ipt3{
+			position: absolute;
+			font-size: 4.5vw;
+			width: 90vw;
+			left: 76vw;
+			top: 217vw;
+			color: #4D4D4D;
+			overflow: hidden;
+		}
+		#ipt4{
+			position: absolute;
+			font-size: 4vw;
+			width: 25vw;
+			left: 13vw;
+			top: 238vw;
+			color: #f6af0d;
+			overflow: hidden;
+		}
+		#ipt5{
+			position: absolute;
+			font-size: 4vw;
+			width: 52vw;
+			left: 41vw;
+			top: 238vw;
+			color: #4D4D4D;
+			overflow: hidden;
+			
+		}
+		#ipt6{
+			position: absolute;
+			font-size: 4vw;
+			width: 25vw;
+			left: 13vw;
+			top: 245vw;
+			color: #f6af0d;
+			overflow: hidden;
+			
+		}
+		#ipt7{
+			position: absolute;
+			font-size: 4vw;
+			width: 52vw;
+			left: 41vw;
+			top: 245vw;
+			color: #4D4D4D;
+			overflow: hidden;
+			
+		}
+		#ipt8{
+			position: absolute;
+			font-size: 4vw;
+			width: 68vw;
+			height: 12vw;
+			left: 95vw;
+text-align: right;
+			top: 245vw;
+			color: #4D4D4D;
+			overflow: hidden;
+		}
+		#ipt9{
+			position: absolute;
+			font-size: 4vw;
+			width: 25vw;
+			left: 13vw;
+			top: 258vw;
+			color: #f6af0d;
+			overflow: hidden;
+			
+		}
+		#ipt10{
+			position: absolute;
+			font-size: 4vw;
+			width: 52vw;
+			left: 41vw;
+			top: 258vw;
+			color: #4D4D4D;
+			overflow: hidden;
+			
+		}
+		#ipt11{
+			position: absolute;
+			font-size: 4vw;
+			width: 68vw;
+			height: 12vw;
+			left: 95vw;
+text-align: right;
+			top: 258vw;
+			color: #4D4D4D;
+			overflow: hidden;
+			
+		}
+		#ipt12{
+			position: absolute;
+			font-size: 4vw;
+			width: 25vw;
+			left: 13vw;
+			top: 270vw;
+			color: #f6af0d;
+			overflow: hidden;
+			
+		}
+		#ipt13{
+			position: absolute;
+			font-size: 4vw;
+			width: 52vw;
+			left: 41vw;
+			top: 270vw;
+			color: #4D4D4D;
+			overflow: hidden;
+			
+		}
+		#ipt14{
+			position: absolute;
+			font-size: 4vw;
+			width: 68vw;
+			height: 12vw;
+			left: 95vw;
+text-align: right;
+			top: 270vw;
+			color: #4D4D4D;
+			overflow: hidden;
+		}
+		#ipt15{
+			position: absolute;
+			font-size: 4vw;
+			width: 25vw;
+			left: 13vw;
+			top: 282vw;
+			color: #f6af0d;
+			overflow: hidden;
+			
+		}
+		#ipt16{
+			position: absolute;
+			font-size: 4vw;
+			width: 52vw;
+			left: 41vw;
+			top: 282vw;
+			color: #4D4D4D;
+			overflow: hidden;
+			
+		}
+		#ipt17{
+			position: absolute;
+			font-size: 4vw;
+			width: 68vw;
+			left: 95vw;
+			top: 282vw;
+			text-align: right;
+			color: #4D4D4D;
+			overflow: hidden;
+		}
+		#ipt18{
+			position: absolute;
+			font-size: 4vw;
+			width: 25vw;
+			left: 13vw;
+			top: 289vw;
+			color: #f6af0d;
+			overflow: hidden;
+		}
+		#ipt19{
+			position: absolute;
+			font-size: 4vw;
+			width: 52vw;
+			left: 41vw;
+			top: 289vw;
+			color: #4D4D4D;
+			overflow: hidden;
+		}
+		#ipt20{
+			position: absolute;
+			font-size: 4vw;
+			width: 68vw;
+			left: 95vw;
+			text-align: right;
+			top: 289vw;
+			color: #4D4D4D;
+			overflow: hidden;
+		}
+		#input{
+			font-size: 4vw;
+			color: #333333;
+			width: 90vw;
+			height: 20vw;
+			margin: 5vw;
+			margin-bottom: 2vw;
+			padding: 2vw;
+			border: 1px solid #cccccc;
+			box-sizing: border-box;
+		}
+		.show-img{
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			font-size: 0;
+		}
+		.img1{
+			position: absolute;
+			left: 45vw;
+			top: 332vw;
+			width: 34vw;
+			height: 34vw;
+			background-size: 100% 100%;
+			background-repeat: no-repeat;
+			font-size: 0;
+		}
+		#ipt21{
+			position: absolute;
+			font-size: 6vw;
+			width: 37vw;
+			left: 42vw;
+			top: 377vw;
+			color: #4D4D4D;
+			overflow: hidden;
+			text-align: center;
+		}
+		.img2{
+			position: absolute;
+			left: 117vw;
+			top: 345vw;
+			width: 19vw;
+			height: 19vw;
+			background-size: 100% 100%;
+			background-repeat: no-repeat;
+			font-size: 0;
+		}
+		#ipt22{
+			position: absolute;
+			font-size: 4.5vw;
+			width: 37vw;
+			left: 107vw;
+			top: 369vw;
+			color: #4D4D4D;
+			overflow: hidden;
+			text-align: center;
+		}
+		.img3{
+			position: absolute;
+			left: 161vw;
+			top: 345vw;
+			width: 19vw;
+			height: 19vw;
+			background-size: 100% 100%;
+			background-repeat: no-repeat;
+			font-size: 0;
+		}
+		#ipt23{
+			position: absolute;
+			font-size: 4.5vw;
+			width: 37vw;
+			left: 151vw;
+			top: 369vw;
+			color: #4D4D4D;
+			overflow: hidden;
+			text-align: center;
+		}
+		.js_upFile{
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			font-size: 0;
+			opacity: 0;
+		}
+		.btn{
+			width: 24vw;
+			margin-left: 38vw;
+		}
+		.btn-done{
+			position: absolute;
+			left: 38vw;
+			top: 239vw;
+			width: 24vw;
+		}
+		.btn-save{
+			display: none;
+			position: absolute;
+			left: 38vw;
+			top: 239vw;
+			width: 24vw;
+			animation-name: text-animation;
+			animation-duration: 2s;
+			animation-iteration-count: infinite;
+			-webkit-animation-name: text-animation;
+			-webkit-animation-duration: 2s;
+			-webkit-animation-iteration-count: infinite;
+		}
+		@-webkit-keyframes text-animation {
+			0% {
+				opacity: 1
+			}
+			33% {
+				opacity: 0
+			}
+			66% {
+				opacity: 0
+			}
+			100% {
+				opacity: 1
+			}
+		}
+		
+		@-o-keyframes text-animation {
+			0% {
+				opacity: 1
+			}
+			33% {
+				opacity: 0
+			}
+			66% {
+				opacity: 0
+			}
+			100% {
+				opacity: 1
+			}
+		}
+		
+		@keyframes text-animation {
+			0% {
+				opacity: 1
+			}
+			33% {
+				opacity: 0
+			}
+			66% {
+				opacity: 0
+			}
+			100% {
+				opacity: 1
+			}
+		}
+		.cropper-wrapper{
+			display: none;
+			position: fixed;
+			width: 100vw;
+			height: 100vh;
+			left: 0;
+			top: 0;
+			background-color: #000000;
+		}
+		.cropper-box{
+			width: 100vw;
+			height: 50vh;
+			background-color: #000000;
+		}
+		#cropper{
+			max-width: 100%;
+		}
+		.cropper-oprate{
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: flex-start;
+			padding: 5vw;
+		}
+	</style>
+</head>
+<body>
+<div class="relative" style="width: 100%;" id="captureId">
+	<img src="images/before-tpl/before_tpl_3/before_tpl_3_1/before_empty_tpl_3_1.png" class="img_bg" id="img_bg" alt="">
+	<div class="main_con">
+		<p id="ipt1">2020年x年x日(周日) 00:00-00:00</p>
+		<p id="ipt2" >xxxxxxx酒店xx楼xx厅</p>
+		<p id="ipt3" >xxx 教授 xxxxxxxx医院</p>
+		<p id="ipt4" >00:00-00:00</p>
+		<p id="ipt5" >开场视频</p>
+		<p id="ipt6">00:00-00:00</p>
+		<p id="ipt7">主席致辞</p>
+		<p id="ipt8">xxx教授(1位KOL)<br/>xxxxxxxx医院</p>
+		<p id="ipt9">00:00-00:00</p>
+		<p id="ipt10">填写讲题</p>
+		<p id="ipt11">xxx教授<br/>xxxxxxxx医院</p>
+		<p id="ipt12">00:00-00:00</p>
+		<p id="ipt13">填写讲题</p>
+		<p id="ipt14">xxx教授<br/>xxxxxxxx医院</p>
+		<p id="ipt15">00:00-00:00</p>
+		<p id="ipt16">互动讨论</p>
+		<p id="ipt17">全体</p>
+		<p id="ipt18">00:00-00:00</p>
+		<p id="ipt19">总结</p>
+		<p id="ipt20">全体</p>
+		<div id="img1_temp" class="img1">
+			<input type="file" accept="image/*" class="js_upFile" />
+		</div>
+		<p id="ipt21">xxx教授</p>
+		<div id="img2_temp" class="img2">
+			<input type="file" accept="image/*" class="js_upFile" />
+		</div>
+		<p id="ipt22">xxx教授</p>
+		<div id="img3_temp" class="img3">
+			<input type="file" accept="image/*" class="js_upFile" />
+		</div>
+		<p id="ipt23">xxx教授</p>
+	</div>
+	<div class="main_con_down">
+		<div id="img1"  class="img1">
+			<img src="images/before-tpl/before_tpl_3/before_tpl_3_1/img1.png" class="show-img">
+			<input type="file" accept="image/*" class="js_upFile" />
+		</div>
+		<div id="img2"  class="img2">
+			<img src="images/before-tpl/before_tpl_3/before_tpl_3_1/img2.png" class="show-img">
+			<input type="file" accept="image/*" class="js_upFile" />
+		</div>
+		<div id="img3"  class="img3">
+			<img src="images/before-tpl/before_tpl_3/before_tpl_3_1/img2.png" class="show-img">
+			<input type="file" accept="image/*" class="js_upFile" />
+		</div>
+	</div>
+</div>
+<img class="btn-done" src="images/btn_next.png" />
+<img class="btn-save" src="images/btn_save.png" />
+
+<div class="cropper-wrapper">
+	<div class="cropper-box">
+		<img id="cropper">
+	</div>
+	<div class="cropper-oprate">
+		<span id="sureCropper" style="color: #ffffff">确定</span>
+		<span id="cancelCropper" style="color: #ffffff">取消</span>
+	</div>
+</div>
+
+</body>
+<script src="js/layer.js"></script>
+<script src="js/util.js"></script>
+<script src="js/cropper.min.js"></script><!-- Cropper.js is required -->
+<link  href="css/cropper.min.css" rel="stylesheet">
+<script src="js/jquery-cropper.min.js"></script>
+<script src="js/bluebird.js"></script>
+<script src="js/html2canvas.js"></script>
+<script src="js/before.js"></script>
+<script>
+  doBeforeThing()
+</script>
+</html>

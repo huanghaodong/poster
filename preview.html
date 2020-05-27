@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+	<meta content="yes" name="apple-mobile-web-app-capable">
+	<meta content="yes" name="apple-touch-fullscreen">
+	<meta content="telephone=no,email=no" name="format-detection">
+	<script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/mobile.css">
+	<style>
+		
+		.btn{
+			position: absolute;
+			width: 24vw;
+		}
+		.btn_back{
+			left: 14vw;
+			top: 161vw;
+		}
+		.btn_choose{
+			right: 14vw;
+			top: 161vw;
+		}
+	</style>
+</head>
+<body class="relative">
+<img src="images/before-tpl/before_tpl_1.jpg" class="img_bg" id="img_bg" alt="">
+<div class="main_con">
+	<img class="btn btn_back" src="images/btn_back.png" />
+	<img class="btn btn_choose" src="images/btn_choose.png" />
+</div>
+
+
+
+</body>
+<script src="js/layer.js"></script>
+<script src="js/util.js"></script>
+
+<script>
+  $(function () {
+    var tempObj = paramsToObj(window.location.href)
+    // var tempObj = {
+    //   type: 'before',
+		// 	index: 0
+		// }
+		console.log(tempObj)
+    $('.img_bg').attr('src', 'images/' + tempObj.type + '-tpl/' + tempObj.type + '_tpl_' + (Number(tempObj.index) + 1) + '.jpg')
+
+    $('.btn_choose').click(function () {
+      window.location.href = 'set-options.html?' + objToParams(tempObj)
+    });
+    $('.btn_back').click(function () {
+      window.history.go(-1);
+    });
+  })
+</script>
+</html>

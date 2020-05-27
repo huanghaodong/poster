@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+	<meta content="yes" name="apple-mobile-web-app-capable">
+	<meta content="yes" name="apple-touch-fullscreen">
+	<meta content="telephone=no,email=no" name="format-detection">
+	<script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/mobile.css">
+	<style>
+		input,select,textarea{
+			border:none;
+			background:none;
+			outline: medium;
+			color:white;
+		}
+		select{
+			border:0;
+			background: transparent;
+			-webkit-appearance:none;
+			
+			-moz-appearance:none;
+			
+			appearance:none; /*去掉下拉箭头*/
+			/*padding-left: 3px;*/
+		}
+		/*input::-webkit-input-placeholder{*/
+		/*color:white;*/
+		/*}*/
+		input::-webkit-input-placeholder{
+			font-size: 3.4vw;
+		}
+		input::-moz-placeholder{   /* Mozilla Firefox 19+ */
+			font-size: 3.4vw;
+		}
+		input:-moz-placeholder{    /* Mozilla Firefox 4 to 18 */
+			font-size: 3.4vw;
+		}
+		input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
+			font-size: 3.4vw;
+		}
+		.main_con{
+			width: 200%;
+			left: 0;
+			top: 0;
+			height: 200%;
+			overflow: hidden;
+			margin: 0 auto;
+			position: absolute;
+			box-sizing: border-box;
+			transform-origin:0 0;
+			transform: scale(0.5, 0.5);
+			-ms-transform: scale(0.5, 0.5); 		/* IE 9 */
+			-ms-transform-origin:0 0; 		/* IE 9 */
+			-webkit-transform: scale(0.5, 0.5);	/* Safari 和 Chrome */
+			-webkit-transform-origin:0 0;	/* Safari 和 Chrome */
+			-moz-transform: scale(0.5, 0.5);		/* Firefox */
+			-moz-transform-origin:0 0;		/* Firefox */
+			-o-transform: scale(0.5, 0.5);		/* Opera */
+			-o-transform-origin:0 0;		/* Opera */
+		}
+		.main_con_down{
+			width: 200%;
+			left: 0;
+			top: 0;
+			height: 200%;
+			overflow: hidden;
+			margin: 0 auto;
+			position: absolute;
+			box-sizing: border-box;
+			transform-origin:0 0;
+			transform: scale(0.5, 0.5);
+			-ms-transform: scale(0.5, 0.5); 		/* IE 9 */
+			-ms-transform-origin:0 0; 		/* IE 9 */
+			-webkit-transform: scale(0.5, 0.5);	/* Safari 和 Chrome */
+			-webkit-transform-origin:0 0;	/* Safari 和 Chrome */
+			-moz-transform: scale(0.5, 0.5);		/* Firefox */
+			-moz-transform-origin:0 0;		/* Firefox */
+			-o-transform: scale(0.5, 0.5);		/* Opera */
+			-o-transform-origin:0 0;		/* Opera */
+			z-index: -999;
+		}
+		#ipt8{
+			position: absolute;
+			font-size: 11vw;
+			font-weight: 900;
+			text-align: center;
+			width: 200vw;
+			left: -26vw;
+			top: 118vw;
+			color: #171957;
+		}
+		#ipt1{
+			position: absolute;
+			font-size: 5vw;
+			width: 125vw;
+			height: 40vw;
+			line-height: 8vw;
+			left: 20vw;
+			top: 311vw;
+			color: #ffffff;
+			overflow: hidden;
+		}
+		#ipt7{
+			position: absolute;
+			font-size: 5vw;
+			width: 125vw;
+			height: 16vw;
+			line-height: 8vw;
+			left: 20vw;
+			top: 296vw;
+			color: #ffffff;
+			overflow: hidden;
+		}
+		#input{
+			font-size: 4vw;
+			color: #333333;
+			width: 90vw;
+			height: 20vw;
+			margin: 5vw;
+			margin-bottom: 2vw;
+			padding: 2vw;
+			border: 1px solid #cccccc;
+			box-sizing: border-box;
+		}
+		.img1{
+			position: absolute;
+			left: 58vw;
+			top: 211vw;
+			width: 116vw;
+			height: 58vw;
+			background-size: 100% 100%;
+			background-repeat: no-repeat;
+			font-size: 0;
+		}
+		
+		.show-img{
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			font-size: 0;
+		}
+		.img2{
+			position: absolute;
+			left: 23vw;
+			top: 357vw;
+			width: 51vw;
+			height: 51vw;
+			background-size: 100% 100%;
+			background-repeat: no-repeat;
+		}
+		#ipt2{
+			position: absolute;
+			font-size: 5vw;
+			width: 72vw;
+			height: 22vw;
+			text-align: center;
+			left: 13vw;
+			top: 425vw;
+			color: #ffffff;
+			overflow: hidden;
+			
+			
+		}
+		#ipt3{
+			position: absolute;
+			font-size: 3.4vw;
+			width: 40vw;
+			text-align: center;
+			left: 36vw;
+			top: 352vw;
+			color: #FFFFFF;
+			overflow: hidden;
+			
+		}
+		.img3{
+			position: absolute;
+			left: 149vw;
+			top: 421vw;
+			width: 37vw;
+			height: 37vw;
+			background-size: 100% 100%;
+			background-repeat: no-repeat;
+		}
+		#ipt4{
+			position: absolute;
+			font-size: 3.6vw;
+			width: 51vw;
+			height: 10vw;
+			text-align: center;
+			left: 96vw;
+			top: 498vw;
+			color: #171957;
+			overflow: hidden;
+		}
+		#ipt9{
+			position: absolute;
+			font-size: 3.6vw;
+			width: 51vw;
+			height: 10vw;
+			text-align: center;
+			left: 48vw;
+			top: 526vw;
+			color: #171957;
+			overflow: hidden;
+		}
+		#ipt5{
+			position: absolute;
+			font-size: 3.4vw;
+			width: 40vw;
+			text-align: center;
+			left: 116vw;
+			top: 407vw;
+			color: #FFFFFF;
+			overflow: hidden;
+			
+		}
+		.img4{
+			position: absolute;
+			left: 103vw;
+			top: 454vw;
+			width: 38vw;
+			height: 38vw;
+			background-size: 100% 100%;
+			background-repeat: no-repeat;
+		}
+		.img8{
+			position: absolute;
+			left: 55vw;
+			top: 482vw;
+			width: 38vw;
+			height: 38vw;
+			background-size: 100% 100%;
+			background-repeat: no-repeat;
+		}
+		#ipt6{
+			position: absolute;
+			font-size: 3.6vw;
+			width: 51vw;
+			height: 10vw;
+			text-align: center;
+			left: 141vw;
+			top: 464vw;
+			color: #171957;
+			
+			overflow: hidden;
+		}
+		.img5{
+			position: absolute;
+			left: 47vw;
+			top: 616vw;
+			width: 43vw;
+			height: 72vw;
+			background-size: 100% 100%;
+			background-repeat: no-repeat;
+			font-size: 0;
+		}
+		.img6{
+			position: absolute;
+			left: 130vw;
+			top: 566vw;
+			width: 43vw;
+			height: 72vw;
+			background-size: 100% 100%;
+			background-repeat: no-repeat;
+			font-size: 0;
+		}
+		.img7{
+			position: absolute;
+			left: 46vw;
+			top: 728vw;
+			width: 114vw;
+			height: 64vw;
+			background-size: 100% 100%;
+			background-repeat: no-repeat;
+			font-size: 0;
+		}
+		.js_upFile{
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			font-size: 0;
+			opacity: 0;
+		}
+		.btn{
+			width: 24vw;
+			margin-left: 38vw;
+		}
+		.btn_regist{
+			left: 14vw;
+			top: 161vw;
+		}
+		.btn_login{
+			right: 14vw;
+			top: 161vw;
+		}
+		.btn-back {
+			position: absolute;
+			left: 18vw;
+			top: 381vw;
+			width: 24vw;
+		}
+		.btn-done{
+			position: absolute;
+			left: 38vw;
+			top: 403vw;
+			width: 24vw;
+		}
+		.btn-save{
+			display: none;
+			position: absolute;
+			left: 38vw;
+			top: 403vw;
+			width: 24vw;
+			animation-name: text-animation;
+			animation-duration: 2s;
+			animation-iteration-count: infinite;
+			-webkit-animation-name: text-animation;
+			-webkit-animation-duration: 2s;
+			-webkit-animation-iteration-count: infinite;
+		}
+		@-webkit-keyframes text-animation {
+			0% {
+				opacity: 1
+			}
+			33% {
+				opacity: 0
+			}
+			66% {
+				opacity: 0
+			}
+			100% {
+				opacity: 1
+			}
+		}
+		
+		@-o-keyframes text-animation {
+			0% {
+				opacity: 1
+			}
+			33% {
+				opacity: 0
+			}
+			66% {
+				opacity: 0
+			}
+			100% {
+				opacity: 1
+			}
+		}
+		
+		@keyframes text-animation {
+			0% {
+				opacity: 1
+			}
+			33% {
+				opacity: 0
+			}
+			66% {
+				opacity: 0
+			}
+			100% {
+				opacity: 1
+			}
+		}
+		.cropper-wrapper{
+			display: none;
+			position: fixed;
+			width: 100vw;
+			height: 100vh;
+			left: 0;
+			top: 0;
+			background-color: #000000;
+		}
+		.cropper-box{
+			width: 100vw;
+			height: 50vh;
+			background-color: #000000;
+		}
+		#cropper{
+			max-width: 100%;
+		}
+		.cropper-oprate{
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: flex-start;
+			padding: 5vw;
+		}
+</style>
+</head>
+<body>
+<div class="relative" style="width: 100%;" id="captureId">
+	<img src="images/after-tpl/after_tpl_3/after_tpl_3_2/after_empty_tpl_3_2.png" class="img_bg" id="img_bg" alt="">
+	<div class="main_con">
+		<p id="ipt8">XX月XX日.XX站</p>
+		<p id="ipt1">xxxxxxxxxxxxxxxxxxxxx医院xxx教授xxxxxxxxxxxxxxxxxxxxx医院xxx教授一同分享了精彩的议题</p>
+		<div id="img1_temp" class="img1">
+			<input type="file" accept="image/*" class="js_upFile" />
+		</div>
+		<div id="img2_temp"  class="img2">
+			<input type="file" accept="image/*" class="js_upFile" />
+		</div>
+		<p id="ipt2">xxx教授</p>
+		<div id="img3_temp"  class="img3">
+			<input type="file" accept="image/*" class="js_upFile" />
+		</div>
+		<p id="ipt4">xxx教授</p>
+		<p id="ipt9">xxx教授</p>
+		<div id="img4_temp"  class="img4">
+			<input type="file" accept="image/*" class="js_upFile" />
+		</div>
+		<div id="img8_temp"  class="img8">
+			<input type="file" accept="image/*" class="js_upFile" />
+		</div>
+		<p id="ipt6">xxx教授</p>
+		<p id="ipt7">大会主席由xxxxxxxx医院xxx教授担任。</p>
+		<div id="img5_temp"  class="img5">
+			<input type="file" accept="image/*" class="js_upFile" />
+		</div>
+		<div id="img6_temp"  class="img6">
+			<input type="file" accept="image/*" class="js_upFile" />
+		</div>
+		<div id="img7_temp"  class="img7">
+			<input type="file" accept="image/*" class="js_upFile" />
+		</div>
+	</div>
+	<div class="main_con_down">
+		<div id="img1"  class="img1">
+			<img src="images/after-tpl/after_tpl_3/after_tpl_3_2/img1.png" class="show-img">
+			<input type="file" accept="image/*" class="js_upFile" />
+		</div>
+		<div id="img2"  class="img2">
+			<img src="images/after-tpl/after_tpl_3/after_tpl_3_2/img2.png" class="show-img">
+			<input type="file" accept="image/*" class="js_upFile" />
+		</div>
+		<div id="img3"  class="img3">
+			<img src="images/after-tpl/after_tpl_3/after_tpl_3_2/img3.png" class="show-img">
+			<input type="file" accept="image/*" class="js_upFile" />
+		</div>
+		<div id="img4"  class="img4">
+			<img src="images/after-tpl/after_tpl_3/after_tpl_3_2/img4.png" class="show-img">
+			<input type="file" accept="image/*" class="js_upFile" />
+		</div>
+		<div id="img8"  class="img8">
+			<img src="images/after-tpl/after_tpl_3/after_tpl_3_2/img4.png" class="show-img">
+			<input type="file" accept="image/*" class="js_upFile" />
+		</div>
+		<div id="img5"  class="img5">
+			<img src="images/after-tpl/after_tpl_3/after_tpl_3_2/img5.png" class="show-img">
+			<input type="file" accept="image/*" class="js_upFile" />
+		</div>
+		<div id="img6"  class="img6">
+			<img src="images/after-tpl/after_tpl_3/after_tpl_3_2/img6.png" class="show-img">
+			<input type="file" accept="image/*" class="js_upFile" />
+		</div>
+		<div id="img7"  class="img7">
+			<img src="images/after-tpl/after_tpl_3/after_tpl_3_2/img7.png" class="show-img">
+			<input type="file" accept="image/*" class="js_upFile" />
+		</div>
+	</div>
+</div>
+<!--<img class="btn-back" src="images/btn_back.png">-->
+<img class="btn-done" src="images/btn_next.png" />
+<img class="btn-save" src="images/btn_save.png" />
+
+<div class="cropper-wrapper">
+	<div class="cropper-box">
+		<img id="cropper">
+	</div>
+	<div class="cropper-oprate">
+		<span id="sureCropper" style="color: #ffffff">确定</span>
+		<span id="cancelCropper" style="color: #ffffff">取消</span>
+	</div>
+</div>
+
+</body>
+<script src="js/layer.js"></script>
+<script src="js/util.js"></script>
+<script src="js/cropper.min.js"></script><!-- Cropper.js is required -->
+<link  href="css/cropper.min.css" rel="stylesheet">
+<script src="js/jquery-cropper.min.js"></script>
+<script src="js/bluebird.js"></script>
+<script src="js/html2canvas.js"></script>
+<script src="js/after.js"></script>
+<script>
+  doThing()
+</script>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+	<meta content="yes" name="apple-mobile-web-app-capable">
+	<meta content="yes" name="apple-touch-fullscreen">
+	<meta content="telephone=no,email=no" name="format-detection">
+	<script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/mobile.css">
+	<style>
+	
+		.btn{
+			position: absolute;
+			width: 64vw;
+			
+		}
+		.btn_1{
+			top: 34vw;
+			left: 18vw;
+		}
+		.btn_2{
+			top: 60vw;
+			left: 18vw;
+		}
+		.btn_3{
+			top: 86vw;
+			left: 18vw;
+		}
+		.tips{
+			position: absolute;
+			left: 31vw;
+			top: 105vw;
+			width: 37vw;
+		}
+		.small-btn{
+			position: absolute;
+			width: 24vw;
+		}
+		.btn_back{
+			left: 38vw;
+			top: 116vw;
+		}
+		.btn_next{
+			right: 20vw;
+			top: 116vw;
+		}
+	</style>
+</head>
+<body class="relative">
+<img src="images/set_options_bg.png" class="img_bg" id="img_bg" alt="">
+<div class="main_con">
+	<img class="btn btn_1" src="images/option_1.png" />
+	<img class="btn btn_2" src="images/option_2.png" />
+	<img class="btn btn_3" src="images/option_3.png" />
+	<img class="tips" src="images/set_options_text.png" />
+	<img class="small-btn btn_back" src="images/btn_back.png" />
+	<!--<img class="small-btn btn_next" src="images/btn_next.png" />-->
+</div>
+
+
+
+</body>
+<script src="js/layer.js"></script>
+<script src="js/util.js"></script>
+
+<script>
+  $(function () {
+    var tempObj = paramsToObj(window.location.href)
+    // var tempObj = {
+    //   type: 'before',
+    //   index: 0
+    // }
+    $('.btn').click(function () {
+      var index = $(this).index()
+			//目前只开放了一位主席 两位讲者
+      // if(index !== 0) {
+      //   layerMsg('暂未开放！');
+      //   return false
+      // }
+      window.location.href =  tempObj.type + '_tpl_' + (Number(tempObj.index) + 1) + '_' + (Number(index) + 1) + '.html';
+    });
+    $('.btn_back').click(function () {
+      window.history.go(-1);
+    });
+  })
+</script>
+</html>

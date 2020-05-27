@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+	<meta content="yes" name="apple-mobile-web-app-capable">
+	<meta content="yes" name="apple-touch-fullscreen">
+	<meta content="telephone=no,email=no" name="format-detection">
+	<script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/mobile.css">
+	<style>
+	
+		.btn{
+			position: absolute;
+			width: 66vw;
+			
+		}
+		.btn_1{
+			top: 50vw;
+			left: 17vw;
+		}
+		.btn_2{
+			top: 82vw;
+			left: 17vw;
+		}
+		.small-btn{
+			position: absolute;
+			width: 24vw;
+		}
+		.btn_back{
+			top: 116vw;
+			left: 38vw;
+		}
+	</style>
+</head>
+<body class="relative">
+<img src="images/type_bg.png" class="img_bg" id="img_bg" alt="">
+<div class="main_con">
+	<img class="btn btn_1" src="images/type_btn_1.png" />
+	<img class="btn btn_2" src="images/type_btn_2.png" />
+	<img class="small-btn btn_back" src="images/btn_back.png" />
+</div>
+
+
+
+</body>
+<script src="js/layer.js"></script>
+<script src="js/util.js"></script>
+
+<script>
+  $(function () {
+    
+    $('.btn_1').click(function () {
+      window.location.href = 'before_tpl_list.html'
+    });
+    $('.btn_2').click(function () {
+      window.location.href = 'after_tpl_list.html'
+    });
+    $('.btn_back').click(function () {
+      window.history.go(-1);
+    });
+  })
+</script>
+</html>
